@@ -62,8 +62,8 @@ class CreatePluginsModel(BaseSettingsModel):
     CreateAlembicCamera: CreatorModel = SettingsField(
         default_factory=CreatorModel,
         title="Create Alembic Camera")
-    Create3DelightNsi: Create3DelightNsiModel = SettingsField(
-        default_factory=Create3DelightNsiModel,
+    Create3DelightNsi: Create3DelightNsi = SettingsField(
+        default_factory=Create3DelightNsi,
         title="Create 3Delight NSI")
     Create3DelightRop: CreatorModel = SettingsField(
         default_factory=CreatorModel,
