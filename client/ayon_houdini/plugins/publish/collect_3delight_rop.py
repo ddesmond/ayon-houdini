@@ -28,14 +28,14 @@ class Collect3DelightROPRenderProducts(plugin.HoudiniInstancePlugin):
 
         rop = hou.node(instance.data.get("instance_node"))
 
-        default_prefix = evalParmNoFrame(rop, "ar_picture")
+        default_prefix = evalParmNoFrame(rop, "default_image_filename")
         render_products = []
 
         export_prefix = None
         export_products = []
         if instance.data["splitRender"]:
             export_prefix = evalParmNoFrame(
-                rop, "3dl_nsi_file", pad_character="0"
+                rop, "default_export_nsi_filename", pad_character="0"
             )
             beauty_export_product = self.get_render_product_name(
                 prefix=export_prefix,
@@ -59,39 +59,40 @@ class Collect3DelightROPRenderProducts(plugin.HoudiniInstancePlugin):
         # Assume it's a multipartExr Render.
         multipartExr = True
 
-        num_aovs = rop.evalParm("ar_aovs")
-
-        for index in range(1, num_aovs + 1):
-            aov_enabled = rop.evalParm("ar_enable_aov{}".format(index))
-            aov_sep = rop.evalParm("ar_aov_separate{}".format(index))
-            aov_path = rop.evalParm("ar_aov_separate_file{}".format(index))
-
-            # Skip disabled AOVs or AOVs with no separate aov file path
-            if not all((aov_enabled, aov_path, aov_sep)):
-                continue
-
-            if rop.evalParm("ar_aov_exr_enable_layer_name{}".format(index)):
-                label = rop.evalParm("ar_aov_exr_layer_name{}".format(index))
-            else:
-                label = evalParmNoFrame(rop, "ar_aov_label{}".format(index))
-
-            # NOTE:
-            #  we don't collect the actual AOV path but rather assume
-            #    the user has used the default beauty path (collected above)
-            #    with the AOV name before the extension.
-            #  Also, Note that Ayon Publishing does not require a specific
-            #    file name, as it will be renamed according to the naming
-            #    conventions set in the publish template.
-            aov_product = self.get_render_product_name(
-                prefix=default_prefix, suffix=label
-            )
-            render_products.append(aov_product)
-            files_by_aov[label] = self.generate_expected_files(
-                instance, aov_product
-            )
-
-            # Set to False as soon as we have a separated aov.
-            multipartExr = False
+        #num_aovs = rop.evalParm("ar_aovs")
+        num_aovs = 0
+        #
+        # for index in range(1, num_aovs + 1):
+        #     aov_enabled = rop.evalParm("ar_enable_aov{}".format(index))
+        #     aov_sep = rop.evalParm("ar_aov_separate{}".format(index))
+        #     aov_path = rop.evalParm("ar_aov_separate_file{}".format(index))
+        #
+        #     # Skip disabled AOVs or AOVs with no separate aov file path
+        #     if not all((aov_enabled, aov_path, aov_sep)):
+        #         continue
+        #
+        #     if rop.evalParm("ar_aov_exr_enable_layer_name{}".format(index)):
+        #         label = rop.evalParm("ar_aov_exr_layer_name{}".format(index))
+        #     else:
+        #         label = evalParmNoFrame(rop, "ar_aov_label{}".format(index))
+        #
+        #     # NOTE:
+        #     #  we don't collect the actual AOV path but rather assume
+        #     #    the user has used the default beauty path (collected above)
+        #     #    with the AOV name before the extension.
+        #     #  Also, Note that Ayon Publishing does not require a specific
+        #     #    file name, as it will be renamed according to the naming
+        #     #    conventions set in the publish template.
+        #     aov_product = self.get_render_product_name(
+        #         prefix=default_prefix, suffix=label
+        #     )
+        #     render_products.append(aov_product)
+        #     files_by_aov[label] = self.generate_expected_files(
+        #         instance, aov_product
+        #     )
+        #
+        #     # Set to False as soon as we have a separated aov.
+        #     multipartExr = False
 
         # Review Logic expects this key to exist and be True
         # if render is a multipart Exr.
