@@ -45,6 +45,9 @@ class Create3DelightRop(plugin.HoudiniCreator):
 
             # 3Delight ROP settings
             "default_image_filename": filepath,
+            "save_rendered_images": 1,
+            "display_rendered_images": 1,
+            "output_nsi_files": 0,
         }
 
         if pre_create_data.get("render_target") == "farm_split":

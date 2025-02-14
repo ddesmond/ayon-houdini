@@ -50,7 +50,9 @@ class Create3DelightNsi(plugin.HoudiniCreator):
             "trange": 1,
             # 3Delight ROP settings
             "default_export_nsi_filename": filepath,
-            "output_nsi_files": 1
+            "output_nsi_files": 1,
+            "save_rendered_images": 1,
+            "display_rendered_images": 0,
         }
 
         instance_node.setParms(parms)
