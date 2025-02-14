@@ -44,8 +44,7 @@ class Create3DelightRop(plugin.HoudiniCreator):
             "trange": 1,
 
             # 3Delight ROP settings
-            "ar_picture": filepath,
-            "ar_exr_half_precision": 1           # half precision
+            "output_image_filename": filepath,
         }
 
         if pre_create_data.get("render_target") == "farm_split":
@@ -54,8 +53,8 @@ class Create3DelightRop(plugin.HoudiniCreator):
                     export_dir=hou.text.expandString("$HIP/pyblish/nsi/"),
                     product_name=product_name,
                 )
-            parms["3dl_nsi_export_enable"] = 1
-            parms["3dl_nsi_file"] = nsi_filepath
+            parms["output_nsi_files"] = 1
+            parms["default_export_nsi_filename"] = nsi_filepath
 
         instance_node.setParms(parms)
 

@@ -81,6 +81,10 @@ def get_output_parameter(node):
         if node_type.evalParm("ar_ass_export_enable"):
             return node.parm("ar_ass_file")
         return node.parm("ar_picture")
+    elif node_type == "3Delight":
+        if node_type.evalParm("output_nsi_files"):
+            return node.parm("default_export_nsi_filename")
+        return node.parm("default_image_filename")
     elif node_type in {
         "geometry",
         "rop_geometry",

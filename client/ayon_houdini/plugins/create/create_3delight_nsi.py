@@ -48,15 +48,15 @@ class Create3DelightNsi(plugin.HoudiniCreator):
         parms = {
             # Render frame range
             "trange": 1,
-            # Arnold ROP settings
-            "3dl_nsi_file": filepath,
-            "3dl_nsi_export_enable": 1
+            # 3Delight ROP settings
+            "default_export_nsi_filename": filepath,
+            "output_nsi_files": 1
         }
 
         instance_node.setParms(parms)
 
         # Lock any parameters in this list
-        to_lock = ["3dl_nsi_export_enable", "productType", "id"]
+        to_lock = ["output_nsi_files", "productType", "id"]
         self.lock_parameters(instance_node, to_lock)
 
     def get_instance_attr_defs(self):
