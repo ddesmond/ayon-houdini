@@ -34,7 +34,7 @@ class CreateArnoldAssModel(BaseSettingsModel):
     )
     ext: str = SettingsField(Title="Extension")
 
-class Create3DelightNsi(BaseSettingsModel):
+class Create3DelightNsiModel(BaseSettingsModel):
     enabled: bool = SettingsField(title="Enabled")
     default_variants: list[str] = SettingsField(
         title="Default Products",
@@ -70,8 +70,8 @@ class CreatePluginsModel(BaseSettingsModel):
     CreateAlembicCamera: CreatorModel = SettingsField(
         default_factory=CreatorModel,
         title="Create Alembic Camera")
-    Create3DelightNsi: Create3DelightNsi = SettingsField(
-        default_factory=Create3DelightNsi,
+    Create3DelightNsi: Create3DelightNsiModel = SettingsField(
+        default_factory=Create3DelightNsiModel,
         title="Create 3Delight NSI")
     Create3DelightRop: CreatorModel = SettingsField(
         default_factory=CreatorModel,
