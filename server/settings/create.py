@@ -62,6 +62,12 @@ class CreatePluginsModel(BaseSettingsModel):
     CreateAlembicCamera: CreatorModel = SettingsField(
         default_factory=CreatorModel,
         title="Create Alembic Camera")
+    Create3DelightNsi: Create3DelightNsiModel = SettingsField(
+        default_factory=Create3DelightNsiModel,
+        title="Create 3Delight NSI")
+    Create3DelightRop: CreatorModel = SettingsField(
+        default_factory=CreatorModel,
+        title="Create 3Delight ROP")
     CreateArnoldAss: CreateArnoldAssModel = SettingsField(
         default_factory=CreateArnoldAssModel,
         title="Create Arnold Ass")
@@ -121,6 +127,15 @@ class CreatePluginsModel(BaseSettingsModel):
 
 DEFAULT_HOUDINI_CREATE_SETTINGS = {
     "CreateAlembicCamera": {
+        "enabled": True,
+        "default_variants": ["Main"]
+    },
+    "Create3DelightNsi": {
+        "enabled": True,
+        "default_variants": ["Main"],
+        "ext": ".nsi"
+    },
+    "Create3DelightRop": {
         "enabled": True,
         "default_variants": ["Main"]
     },

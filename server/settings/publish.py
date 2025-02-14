@@ -54,6 +54,8 @@ def product_types_enum():
         {"value": "usd", "label": "USD (experimental)"},
         {"value": "vdbcache", "label": "VDB Cache"},
         {"value": "imagesequence", "label": "Composite (Image Sequence)"},
+        {"value": "nsi", "label": "3Delight NSI"},
+        {"value": "3delight_rop", "label": "3Delight ROP"},
         {"value": "ass", "label": "Arnold ASS"},
         {"value": "arnold_rop", "label": "Arnold ROP"},
         {"value": "mantra_rop", "label": "Mantra ROP"},
