@@ -34,6 +34,14 @@ class CreateArnoldAssModel(BaseSettingsModel):
     )
     ext: str = SettingsField(Title="Extension")
 
+class Create3DelightNsi(BaseSettingsModel):
+    enabled: bool = SettingsField(title="Enabled")
+    default_variants: list[str] = SettingsField(
+        title="Default Products",
+        default_factory=list,
+    )
+    ext: str = SettingsField(Title="Extension")
+
 
 class CreateStaticMeshModel(BaseSettingsModel):
     enabled: bool = SettingsField(title="Enabled")
