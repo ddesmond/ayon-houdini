@@ -10,9 +10,10 @@ class CollectFarmInstances(plugin.HoudiniInstancePlugin):
                 "karma_rop",
                 "redshift_rop",
                 "arnold_rop",
+                "3delight_rop",
                 "vray_rop",
                 "usdrender",
-                "ass","pointcache", "redshiftproxy",
+                "ass", "nsi", "pointcache", "redshiftproxy",
                 "vdbcache", "model", "staticMesh",
                 "rop.opengl", "usdrop", "camera"]
 
