@@ -142,6 +142,7 @@ class Create3DelightNsi(plugin.HoudiniCreator):
             "aov_name_16": "Shadow Mask",
             "aov_clear_16,": 0,
 
+            # light setup
             "use_light_set_1": 1,
             "light_set_1": "/obj/ambient",
             "use_rgba_only_set_1": 1,
