@@ -41,17 +41,21 @@ class Create3DelightNsi(plugin.HoudiniCreator):
         parm_template_group.hideFolder("Properties", True)
         instance_node.setParmTemplateGroup(parm_template_group)
 
-        filepath = "{}{}".format(
-            hou.text.expandString("$HIP/pyblish/"),
-            "{}.$F4{}".format(product_name, self.ext)
+        filepath = f"{renders_dir}{product_name}/{product_name}.$F4.{ext}"
+        # nsi
+        nsi_filepath = "{export_dir}{product_name}/{product_name}.$F4.nsi".format(
+            export_dir=hou.text.expandString("$HIP/pyblish/nsi/"),
+            product_name=product_name,
         )
+
         parms = {
             # Render frame range
             "trange": 1,
             # 3Delight ROP settings
-            "default_export_nsi_filename": filepath,
+            "default_image_filename": filepath,
+            "default_export_nsi_filename": nsi_filepath,
             "output_nsi_files": 1,
-            "save_rendered_images": 1,
+            "save_rendered_images": 0,
             "display_rendered_images": 0,
         }
 
