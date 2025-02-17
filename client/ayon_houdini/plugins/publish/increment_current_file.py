@@ -26,6 +26,7 @@ class IncrementCurrentFile(plugin.HoudiniContextPlugin):
                 "redshift_rop",
                 "arnold_rop",
                 "vray_rop",
+                "3delight_rop",
                 "render.local.hou",
                 "publish.hou"]
     optional = True

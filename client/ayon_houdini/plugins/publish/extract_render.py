@@ -17,7 +17,8 @@ class ExtractRender(plugin.HoudiniExtractorPlugin):
                 "redshift_rop",
                 "arnold_rop",
                 "vray_rop",
-                "usdrender"]
+                "usdrender",
+                "3delight_rop"]
 
     def process(self, instance):
         creator_attribute = instance.data["creator_attributes"]

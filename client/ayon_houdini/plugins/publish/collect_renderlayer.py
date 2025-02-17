@@ -20,7 +20,8 @@ class CollectRendelayerFromROP(plugin.HoudiniInstancePlugin):
                 "redshift_rop",
                 "arnold_rop",
                 "vray_rop",
-                "usdrender"]
+                "usdrender",
+                "3delight_rop"]
 
     def process(self, instance):
         rop = hou.node(instance.data.get("instance_node"))

@@ -13,9 +13,16 @@ class CollectFarmInstances(plugin.HoudiniInstancePlugin):
                 "3delight_rop",
                 "vray_rop",
                 "usdrender",
-                "ass", "nsi", "pointcache", "redshiftproxy",
-                "vdbcache", "model", "staticMesh",
-                "rop.opengl", "usdrop", "camera"]
+                "ass",
+                "nsi",
+                "pointcache",
+                "redshiftproxy",
+                "vdbcache",
+                "model",
+                "staticMesh",
+                "rop.opengl",
+                "usdrop",
+                "camera"]
 
     targets = ["local", "remote"]
     label = "Collect farm instances"

@@ -12,7 +12,8 @@ class ExtractROP(plugin.HoudiniExtractorPlugin):
     order = pyblish.api.ExtractorOrder
 
     families = ["abc", "camera", "bgeo", "pointcache", "fbx",
-                "vdbcache", "ass", "redshiftproxy", "mantraifd"]
+                "vdbcache", "ass", "redshiftproxy", "mantraifd",
+                "nsi"]
     targets = ["local", "remote"]
 
     def process(self, instance: pyblish.api.Instance):
@@ -26,7 +27,8 @@ class ExtractROP(plugin.HoudiniExtractorPlugin):
         _, ext = splitext(
             first_file, allowed_multidot_extensions=[
                 ".ass.gz", ".bgeo.sc", ".bgeo.gz",
-                ".bgeo.lzma", ".bgeo.bz2"]
+                ".bgeo.lzma", ".bgeo.bz2",
+                ".nsi.gz"]
         )
         ext = ext.lstrip(".")
 
@@ -44,7 +46,8 @@ class ExtractROP(plugin.HoudiniExtractorPlugin):
         name = {
             "bgeo": "bgeo",
             "rs": "rs",
-            "ass": "ass"
+            "ass": "ass",
+            "nsi": "nsi"
         }.get(product_type, ext)
 
         representation = {

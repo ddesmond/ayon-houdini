@@ -17,7 +17,8 @@ class CollectHoudiniRenderColorspace(plugin.HoudiniInstancePlugin):
                 "redshift_rop",
                 "arnold_rop",
                 "vray_rop",
-                "usdrender"]
+                "usdrender",
+                "3delight_rop"]
 
     def process(self, instance):
         # Set the required data for `ayon_core.pipeline.farm.pyblish_functions`

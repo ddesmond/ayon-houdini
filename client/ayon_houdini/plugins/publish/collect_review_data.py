@@ -79,4 +79,7 @@ class CollectHoudiniReviewData(plugin.HoudiniInstancePlugin):
         elif ropnode.type().name() == "vray_renderer":
             return ropnode.parm("render_camera").eval()
 
+        elif ropnode.type().name() == "3Delight":
+            return ropnode.parm("camera").eval()
+
         return None

@@ -29,7 +29,8 @@ class CollectLocalRenderInstances(plugin.HoudiniInstancePlugin,
                 "redshift_rop",
                 "arnold_rop",
                 "vray_rop",
-                "usdrender"]
+                "usdrender",
+                "3delight_rop"]
 
     label = "Collect local render instances"
 

@@ -60,10 +60,12 @@ class ValidateRenderProductPathsUnique(plugin.HoudiniContextPlugin,
     families = [
         # Render products
         "usdrender", "karma_rop", "redshift_rop", "arnold_rop", "mantra_rop",
+        "3delight_rop",
 
         # Product families from collect frames plug-in
         "camera", "vdbcache", "imagesequence", "ass", "redshiftproxy",
-        "review", "pointcache", "fbx", "model"
+        "review", "pointcache", "fbx", "model",
+        "nsi"
     ]
 
     hosts = ["houdini"]
