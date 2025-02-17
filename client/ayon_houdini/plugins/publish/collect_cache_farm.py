@@ -12,7 +12,8 @@ class CollectFarmCacheFamily(plugin.HoudiniInstancePlugin):
     order = pyblish.api.CollectorOrder - 0.45
     families = ["ass", "pointcache", "redshiftproxy",
                 "vdbcache", "model", "staticMesh",
-                 "rop.opengl", "usdrop", "camera"]
+                 "rop.opengl", "usdrop", "camera",
+                "nsi"]
     targets = ["local", "remote"]
     label = "Collect Data for Cache"
 
