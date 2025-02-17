@@ -38,24 +38,26 @@ class Create3DelightRop(plugin.HoudiniCreator):
         ext = pre_create_data.get("image_format")
 
         renders_dir = hou.text.expandString("$HIP/pyblish/renders/")
+        # image
         filepath = f"{renders_dir}{product_name}/{product_name}.$F4.{ext}"
+        # nsi
+        nsi_filepath = "{export_dir}{product_name}/{product_name}.$F4.nsi".format(
+                                                export_dir=hou.text.expandString("$HIP/pyblish/nsi/"),
+                                                product_name=product_name,
+                                                )
+
         parms = {
             # Render frame range
             "trange": 1,
-
             # 3Delight ROP settings
-            "default_image_filename": filepath,
-            "save_rendered_images": 1,
             "display_rendered_images": 1,
+            "default_image_filename": filepath,
+            "save_rendered_images": 0,
+            "display_rendered_images": 0,
             "output_nsi_files": 0,
         }
 
         if pre_create_data.get("render_target") == "farm_split":
-            nsi_filepath = \
-                "{export_dir}{product_name}/{product_name}.$F4.nsi".format(
-                    export_dir=hou.text.expandString("$HIP/pyblish/nsi/"),
-                    product_name=product_name,
-                )
             parms["output_nsi_files"] = 1
             parms["default_export_nsi_filename"] = nsi_filepath
 
